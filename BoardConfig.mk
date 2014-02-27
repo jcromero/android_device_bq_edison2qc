@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2014 The Android Open Source Project
+# Copyright (C) 2011 The Android Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -17,13 +17,15 @@
 TARGET_NO_BOOTLOADER := true
 TARGET_NO_RADIOIMAGE := true
 TARGET_BOARD_PLATFORM := rk30xx
-TARGET_BOOTLOADER_BOARD_NAME := bq_edison2QuadCore
+TARGET_BOARD_HARDWARE := rk30board
+TARGET_BOOTLOADER_BOARD_NAME := bq_Edison2QuadCore
 
 TARGET_CPU_ABI  := armeabi-v7a
 TARGET_CPU_ABI2 := armeabi
 TARGET_CPU_SMP := true
 TARGET_ARCH := arm
 TARGET_ARCH_VARIANT := armv7-a-neon
+TARGET_CPU_VARIANT := cortex-a9
 ARCH_ARM_HAVE_TLS_REGISTER := true
 
 TARGET_GLOBAL_CFLAGS += -mtune=cortex-a9 -mfpu=neon -mfloat-abi=softfp
@@ -44,14 +46,11 @@ BOARD_FLASH_BLOCK_SIZE := 16384
 TARGET_PREBUILT_KERNEL := device/bq/edison2qc/prebuilt/kernel
 BOARD_KERNEL_BASE := 0x60400000
 BOARD_KERNEL_PAGESIZE := 16384
-BOARD_RK_RAMDISK_ADDRESS := 0x62000000
 
 BOARD_CUSTOM_BOOTIMG_MK := device/bq/edison2qc/mkbootimg.mk
 
 # Recovery
-TARGET_RECOVERY_INITRC := device/bq/edison2qc/recovery.rc
 TARGET_RECOVERY_FSTAB := device/bq/edison2qc/recovery.fstab
-TARGET_RECOVERY_PRE_COMMAND := "echo -n boot-recovery | busybox dd of=/dev/block/mtdblock0 count=1 conv=sync; sync"
 TARGET_USERIMAGES_USE_EXT4 := true
 RECOVERY_SDCARD_ON_DATA := true
 TW_FLASH_FROM_STORAGE := true
@@ -61,6 +60,6 @@ TW_EXTERNAL_STORAGE_PATH := "/external_sd"
 TW_EXTERNAL_STORAGE_MOUNT_POINT := "external_sd"
 BOARD_HAS_LARGE_FILESYSTEM := true
 BOARD_HAS_NO_SELECT_BUTTON := true
-TW_BRIGHTNESS_PATH := /sys/devices/platform/rk29_backlight/backlight/rk28_bl/brightness
-TW_MAX_BRIGHTNESS := 255
 DEVICE_RESOLUTION := 1280x800
+TW_MAX_BRIGHTNESS := 255
+TW_BRIGHTNESS_PATH := /sys/devices/platform/rk29_backlight/backlight/rk28_bl/brightness
