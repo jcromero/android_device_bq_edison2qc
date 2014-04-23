@@ -36,6 +36,7 @@ BOARD_HAS_NO_SELECT_BUTTON := true
 # TWRP specific build flags
 DEVICE_RESOLUTION := 1280x800
 RECOVERY_SDCARD_ON_DATA := true
+TW_BOARD_CUSTOM_GRAPHICS := ../../../device/bq/edison2qc/recovery/graphics.c
 TW_NO_SCREEN_TIMEOUT := true
 TW_INCLUDE_JB_CRYPTO := true
 TW_INTERNAL_STORAGE_PATH := "/data/media"
